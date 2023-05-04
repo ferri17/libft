@@ -6,28 +6,36 @@
 #    By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 23:08:40 by fbosch            #+#    #+#              #
-#    Updated: 2023/05/03 23:43:15 by fbosch           ###   ########.fr        #
+#    Updated: 2023/05/05 01:32:52 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = test_sheet
+SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c\
+ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c\
+ft_memmove.c
 
-SRC = *.c
+OBJ = $(SRC:%.c=%.o)
 
-FLAGS = -Wall -Wextra -Werror
+NAME = libft.a
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+LIB = ar rc
+
+RM = /bin/rm -f
+RMDIR = /bin/rmdir
+
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(NAME).c
-	cc $(FLAGS) $(SRC) -o $(NAME)
-
-norm:
-	norminette -R CheckForbiddenSourceHeader
+$(NAME): $(OBJ) libft.h
+	$(LIB) $(NAME) $(OBJ)
 
 clean:
-	/bin/rm -f *.out
+	$(RM) $(wildcard $(OBJ)) *.out
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	$(RM) $(NAME)
 
-re: fclean $(NAME)
+re: fclean all

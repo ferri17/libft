@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 01:04:16 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/05 01:30:13 by fbosch           ###   ########.fr       */
+/*   Created: 2023/05/05 01:31:45 by fbosch            #+#    #+#             */
+/*   Updated: 2023/05/05 01:34:15 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned char		*original_dst;
 	unsigned const char	*original_src;
@@ -22,11 +22,16 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		return (NULL);
 	original_dst = (unsigned char *) dst;
 	original_src = (unsigned char *) src;
-	i = 0;
-	while (i < n)
+	if (src < dst)
 	{
-		original_dst[i] = original_src[i];
-		i++;
+		while (len-- > 0)
+			*(original_dst + len) = *(original_src + len);
+	}
+	else
+	{
+		i = 0;
+		while (i++ < len)
+			original_dst[i] = original_src[i];
 	}
 	return (dst);
 }

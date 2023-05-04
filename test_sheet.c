@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:18:42 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/04 01:29:19 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/05 01:22:30 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,25 @@ int main(void)
     bzero(str2, 3);
 	printf("'Is bzero a meme too?' bzero (3) : %s, real: %s\n", ft_str2 + 3, str2 + 3);
 
-    printf("\n---- memcpy ----\n");
-	char src_real1[50];
-	char src_test1[50];
-	char dest_real1[50];
-	char dest_test1[50];
-	strcpy(src_real1, "Lorem ipsum dolor sit amet");
-	strcpy(src_test1, "Lorem ipsum dolor sit amet");
-	strcpy(dest_real1, "consectetur adipiscing");
-	strcpy(dest_test1, "consectetur adipiscing");
-	printf("src content : %s, dest content : %s\n", src_real1, dest_real1);
-	memcpy(dest_real1, src_real1, 6);
-	ft_memcpy(dest_test1, src_test1, 6);
-	printf("memcpy (dest, src, 6) : %s, real : %s\n", dest_test1, dest_real1);
+    printf("\n\n::::::__memcpy__::::::\n");
+	char ft_src_1[30] = "123456789";
+	char ft_dst_1[30] = "abcdefghij";
+	char src_1[30] = "123456789";
+	char dst_1[30] = "abcdefghij";
+	printf("src content : %s, dest content : %s\n", src_1, dst_1);
+	memcpy(dst_1, src_1, 6);
+	ft_memcpy(ft_dst_1, ft_src_1, 6);
+	printf("memcpy (dest, src, 6) : %s, real : %s\n", ft_dst_1, dst_1);
 
+	printf("\n\n::::::__memmove__::::::\n");
+	char ft_src_2[30] = "123456789";
+	//char ft_dst_1[30] = "abcdefghij";
+	char src_2[30] = "123456789";
+	//char dst_1[30] = "abcdefghij";
+	printf("src content : %s, dest content : %s\n", src_1, dst_1);
+	memmove(src_2 + 3, src_2, 5);
+	ft_memmove(ft_src_2 + 3, ft_src_2, 5);
+	printf("memmove (dest, src, 6) : %s, real : %s\n", ft_src_2, src_2);
 
 
 

@@ -6,11 +6,11 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 00:31:46 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/03 23:45:03 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/04 23:29:46 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit (int c)
+int	ft_isdigit(int c)
 {
-    return ((c >= '0' && c <= '9'));
+	return ((c >= '0' && c <= '9'));
 }
