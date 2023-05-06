@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 01:31:45 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/06 00:19:04 by fbosch           ###   ########.fr       */
+/*   Created: 2023/05/06 00:30:12 by fbosch            #+#    #+#             */
+/*   Updated: 2023/05/06 01:39:57 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	unsigned char		*original_dst;
-	unsigned char		*original_src;
+	size_t	i;
+	size_t	j;
+	size_t	total_len;
 
-	original_dst = (unsigned char *) dst;
-	original_src = (unsigned char *) src;
-	if (!dst && !src)
-		return (NULL);
-	if (original_dst > original_src)
+	i = 0;
+	j = 0;
+	total_len = 0;
+	while (dst[i])
+		i++;
+	while (src[total_len])
+		total_len++;
+	if (dstsize <= i)
+		total_len = total_len + dstsize;
+	if (dstsize > i)
+		total_len = total_len + i;
+	while (src[j] && (i + 1) < dstsize)
 	{
-		while (len--)
-			*(original_dst + len) = *(original_src + len);
+		dst[i] = src[j];
+		i++;
+		j++;
 	}
-	else
-	{
-		while (len--)
-			*original_dst++ = *original_src++;
-	}
-	return (dst);
+	dst[i] = '\0';
+	return (total_len);
 }

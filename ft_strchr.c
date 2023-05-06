@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 01:31:45 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/06 00:19:04 by fbosch           ###   ########.fr       */
+/*   Created: 2023/05/06 13:26:32 by fbosch            #+#    #+#             */
+/*   Updated: 2023/05/06 17:27:55 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strchr(const char *s, int c)
 {
-	unsigned char		*original_dst;
-	unsigned char		*original_src;
-
-	original_dst = (unsigned char *) dst;
-	original_src = (unsigned char *) src;
-	if (!dst && !src)
-		return (NULL);
-	if (original_dst > original_src)
+	while (*s)
 	{
-		while (len--)
-			*(original_dst + len) = *(original_src + len);
+		if (*s == (char) c)
+			return ((char *) s);
+		s++;
 	}
-	else
-	{
-		while (len--)
-			*original_dst++ = *original_src++;
-	}
-	return (dst);
+	if ((char) c == '\0')
+		return ((char *) s);
+	return (NULL);
 }

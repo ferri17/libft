@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:18:42 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/05 01:22:30 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/06 20:24:29 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,80 @@ int main(void)
 	printf("memcpy (dest, src, 6) : %s, real : %s\n", ft_dst_1, dst_1);
 
 	printf("\n\n::::::__memmove__::::::\n");
-	char ft_src_2[30] = "123456789";
-	//char ft_dst_1[30] = "abcdefghij";
-	char src_2[30] = "123456789";
-	//char dst_1[30] = "abcdefghij";
-	printf("src content : %s, dest content : %s\n", src_1, dst_1);
-	memmove(src_2 + 3, src_2, 5);
-	ft_memmove(ft_src_2 + 3, ft_src_2, 5);
-	printf("memmove (dest, src, 6) : %s, real : %s\n", ft_src_2, src_2);
+	char ft_dst_2[30] = "abcdefghij";
+	char dst_2[30] = "abcdefghij";
+	const char *src_2 = "00000000";
+	printf("src content : %s, dest content : %s\n", src_2, dst_2);
+	memmove(dst_2, src_2 , 5);
+	ft_memmove(ft_dst_2, src_2, 5);
+	printf("memmove (dest, src, 5) : %s, real : %s\n", ft_dst_2, dst_2);
+
+    printf("\n\n::::::__strlcpy__::::::\n");
+    char ft_dst_3[8] = "hey you";
+    char ft_src_3[] = "AAAA";
+    char dst_3[8] = "hey you";
+    char src_3[] = "AAAA";
+    printf("src content: %s, dest content: %s\n", src_3, dst_3);
+    ft_strlcpy(ft_dst_3, ft_src_3, 8);
+    strlcpy(dst_3, src_3, 8);
+    printf("strlcpy (dest, src, 8) : %s, real : %s\n", ft_dst_3, dst_3);
+
+    printf("\n\n::::::__strlcat__::::::\n");
+    char ft_dst_4[20] = "hey you";
+    char ft_src_4[] = "AAAA";
+    char dst_4[20] = "hey you";
+    char src_4[] = "AAAA";
+    int r1;
+    int r2;
+    printf("src content: %s, dest content: %s\n", src_4, dst_4);
+    r1 = ft_strlcat(ft_dst_4, ft_src_4, 20);
+    r2 = strlcat(dst_4, src_4, 20);
+    printf("strlcpy (dest, src, 20) : %s with return: %i, real : %s with return: %i\n", ft_dst_4, r1, dst_4, r2);
+
+    printf("\n\n::::::__toupper__::::::\n");
+    int c1 = 65;
+    int c2 = 45;
+    int c3 = 100;
+    printf("%c to upper is: %c, real: %c\n", c1, ft_toupper(c1), toupper(c1));
+    printf("%c to upper is: %c, real: %c\n", c2, ft_toupper(c2), toupper(c2));
+    printf("%c to upper is: %c, real: %c\n", c3, ft_toupper(c3), toupper(c3));
+
+    printf("\n\n::::::__tolower__::::::\n");
+    c1 = 65;
+    c2 = 45;
+    c3 = 100;
+    printf("%c to lower is: %c, real: %c\n", c1, ft_tolower(c1), tolower(c1));
+    printf("%c to lower is: %c, real: %c\n", c2, ft_tolower(c2), tolower(c2));
+    printf("%c to lower is: %c, real: %c\n", c3, ft_tolower(c3), tolower(c3));
+
+    printf("\n\n::::::__strchar__::::::\n");
+    char *s_char = "Hola que tal";
+    char c = 'a';
+    char *ft_found;
+    char *found;
+    printf("str content: %s, to find content: %c\n", s_char, c);
+    ft_found = ft_strchr(s_char, c);
+    found = strchr(s_char, c);
+    printf("Strchr (s_char, 'a'): %s, real: %s\n", ft_found, found);
+
+    printf("\n\n::::::__strrchar__::::::\n");
+    char *s_char2 = "Hola que tal";
+    c = 'a';
+    char *ft_found2;
+    char *found2;
+    printf("str content: %s, to find content: %c\n", s_char2, c);
+    ft_found2 = ft_strrchr(s_char2, c);
+    found2 = strrchr(s_char2, c);
+    printf("Strrchr (s_char2, 'a'): %s, real: %s\n", ft_found2, found2);
+
+    printf("\n\n::::::__strncmp__::::::\n");
+    char *cmp1 = "test\200";
+    char *cmp2 = "test\0";
+    int n = 6;
+    printf("strncmp (cmp1, cmp2, n): %i, real: %i\n", ft_strncmp(cmp1, cmp2, n), strncmp(cmp1, cmp2, n));
+
+
+
 
 
 
