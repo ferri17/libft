@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:18:42 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/06 20:24:29 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/06 21:17:51 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,17 @@ int main(void)
     char *cmp2 = "test\0";
     int n = 6;
     printf("strncmp (cmp1, cmp2, n): %i, real: %i\n", ft_strncmp(cmp1, cmp2, n), strncmp(cmp1, cmp2, n));
+
+    printf("\n\n::::::__memchr__::::::\n");
+    char *s_mem = "Hey";
+    c = 'y';
+    int x = 0;
+    char *ft_found3;
+    char *found3;
+    printf("str content: %s, to find content: %c\n", s_mem, c);
+    ft_found3 = ft_memchr(s_mem, c, 3);
+    found3 = memchr(s_mem, c, 3);
+    printf("Strchr (s_mem, 'a'): %s, real: %s\n", ft_found3, found3);
 
 
 
