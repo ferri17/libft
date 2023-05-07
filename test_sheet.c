@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:18:42 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/07 02:02:01 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/07 22:22:57 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,60 @@ int main(void)
     char *str8 = "  \v\f\r \n-00000000000000000001t278";
     printf("atoi(str8): %i, real: %i\n", ft_atoi(str8), atoi(str8));
 
+    printf("\n\n::::::__calloc__::::::\n");
+    size_t count3 = 5;
+    size_t size3 = sizeof(int);
+    int *v1 = (int *)ft_calloc(count3, size3);
+    int *v2 = (int *)calloc(count3, size3);
+    printf("calloc(count3, size3): ");
+    for (int i = 0; i < count3; i++)
+    {
+        printf("%d--", v1[i]);
+    }
+    printf(", real: ");
+    for (int i = 0; i < count3; i++)
+    {
+        printf("%d--", v2[i]);
+    }
+    printf("\n");
+    free (v1);
+    free (v2);
+
+    printf("\n\n::::::__strdup__::::::\n");
+    char *str_dup = "He sido un string bueno.";
+    char *ft_str_dup = ft_strdup(str_dup);
+    char *real_str_dup = strdup(str_dup);
+    printf("strdup(str_dup): %s, real: %s\n", ft_str_dup, real_str_dup);
+    free (ft_str_dup);
+    free (real_str_dup);
+
+    printf("\n\n::::::__substr__::::::\n");
+    char *str9 = "hola";
+    char *substr = ft_substr(str9, 2, 30);
+    printf("substr(str9, 2, 30): %s\n", substr);
+    
+    printf("\n\n::::::__strjoin__::::::\n");
+    char const *s1 = "hola";
+    char const *s2 = "que tal";
+    char *str_join = ft_strjoin(s1, s2);
+    printf("strjoin(s1, s2): %s\n", str_join);
+
+    printf("\n\n::::::__strtrim__::::::\n");
+    char const *str10 = "sdk kdsajddj sppps";
+    char const *set = "ps";
+    char *result;
+    result = ft_strtrim(str10, set);
+    printf("substr(str9, 7, 12): %s\n", result);
+
+    printf("\n\n::::::__split__::::::\n");
+    char const *str11 = "Hola que tal";
+    c = ' ';
+    char **arr = ft_split(str11, c);
+    for (int i = 0; arr[i]; i++)
+    {
+        printf("%s, ", arr[i]);
+    }
+    printf("\n");
 
 
      
