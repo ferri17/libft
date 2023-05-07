@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:18:42 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/06 21:17:51 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/07 02:02:01 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,8 +167,21 @@ int main(void)
     found3 = memchr(s_mem, c, 3);
     printf("Strchr (s_mem, 'a'): %s, real: %s\n", ft_found3, found3);
 
+    printf("\n\n::::::__memcmp__::::::\n");
+    char *cmp4 = "test";
+    char *cmp5 = "tes";
+    n = 5;
+    printf("memcmp (cmp4, cmp5, n): %i, real: %i\n", ft_memcmp(cmp4, cmp5, n), memcmp(cmp4, cmp5, n));
 
+    printf("\n\n::::::__strnstr__::::::\n");
+    char *str7 = "blap tlap marual talp";
+    char *needle = "al";
+    n = 50;
+    printf("strnstr (str7, needle, n): %s, real: %s\n", ft_strnstr(str7, needle, n), strnstr(str7, needle, n));
 
+    printf("\n\n::::::__atoi__::::::\n");
+    char *str8 = "  \v\f\r \n-00000000000000000001t278";
+    printf("atoi(str8): %i, real: %i\n", ft_atoi(str8), atoi(str8));
 
 
 
