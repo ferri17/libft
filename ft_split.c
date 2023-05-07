@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:22:29 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/07 22:59:58 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/08 01:26:53 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static unsigned int	word_count(char const *s, char c)
 	unsigned int	words;
 
 	words = 0;
-	if (*s != c)
+	if (*s != c && *s != '\0')
 		words++;
 	while (*s)
 	{
@@ -28,7 +28,7 @@ static unsigned int	word_count(char const *s, char c)
 			if (*s != '\0')
 				words++;
 			else
-				break;
+				break ;
 		}
 		s++;
 	}
@@ -37,26 +37,26 @@ static unsigned int	word_count(char const *s, char c)
 
 static char	*split_words(char const **str, char c)
 {
-	char *word;
-    unsigned int i;
-    size_t word_len;
+	char			*word;
+	unsigned int	i;
+	size_t			word_len;
 
-    while (**str == c)
-        *str = *str + 1;
-    word_len = 0;
-    while (str[0][word_len] != c && str[0][word_len] != '\0')
-        word_len++;
-    word = (char *)malloc(sizeof(char) * word_len + 1);
-    if (word == NULL)
-        return (NULL);
-    i = 0;
-    while (i < word_len)
-    {
-        word[i++] = **str;
-        *str = *str + 1;
-    }
+	while (**str == c)
+		*str = *str + 1;
+	word_len = 0;
+	while (str[0][word_len] != c && str[0][word_len] != '\0')
+		word_len++;
+	word = (char *)malloc(sizeof(char) * word_len + 1);
+	if (word == NULL)
+		return (NULL);
+	i = 0;
+	while (i < word_len)
+	{
+		word[i++] = **str;
+		*str = *str + 1;
+	}
 	word[i] = '\0';
-    return (word);
+	return (word);
 }
 
 static void	free_malloc(char **arr, int i)
@@ -69,14 +69,14 @@ static void	free_malloc(char **arr, int i)
 	free(arr);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **arr;
-	unsigned int words;
-	unsigned int i;
+	char			**arr;
+	unsigned int	words;
+	unsigned int	i;
 
 	words = word_count(s, c);
-	arr = (char **)malloc(sizeof(char *) * (words + 1));
+	arr = (char **)ft_calloc(sizeof(char *), (words + 1));
 	if (arr == NULL)
 		return (NULL);
 	i = 0;
