@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:18:42 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/09 01:53:10 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/09 14:17:48 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,7 +286,7 @@ int main(void)
     ft_putendl_fd("No need to print end of line", 1);
 
     printf("\n\n::::::__putnbr_fd__::::::\n");
-    x = -1983;
+    x = -2147483648;
     ft_putnbr_fd(x, 1);
     printf("\n");
 

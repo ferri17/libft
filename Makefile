@@ -6,7 +6,7 @@
 #    By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 23:08:40 by fbosch            #+#    #+#              #
-#    Updated: 2023/05/09 01:36:19 by fbosch           ###   ########.fr        #
+#    Updated: 2023/05/09 14:53:56 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ) libft.h
 	$(LIB) $(NAME) $(OBJ)
+
+bonus:
 
 clean:
 	$(RM) $(wildcard $(OBJ)) *.out
