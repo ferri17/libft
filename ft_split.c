@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:22:29 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/08 01:26:53 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/08 18:56:37 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static char	*split_words(char const **str, char c)
 
 static void	free_malloc(char **arr, int i)
 {
-	while (i > 0)
+	while (i >= 0)
 	{
 		free(arr[i]);
 		i--;

@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:18:42 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/07 22:22:57 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/09 01:53:10 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,19 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
+#include <fcntl.h>
+
+char f(unsigned int i, char c)
+{
+	char str;
+    str = c + 1;
+	return (str);
+}
+
+void g(unsigned int i, char *c)
+{
+    *c = *c + 1;
+}
 
 int main(void)
 {
@@ -236,6 +249,45 @@ int main(void)
     {
         printf("%s, ", arr[i]);
     }
+    printf("\n");
+
+    printf("\n\n::::::__itoa__::::::\n");
+    int number = -2147483648;
+    char *number_itoa = ft_itoa(number);
+    printf("itoa(number): %s\n", number_itoa);
+
+    printf("\n\n::::::__strmapi__::::::\n");
+    char *str12 = "abcdefghijk";
+    char *str13 = ft_strmapi(str12, f);
+    printf("strmapi('%s', f): %s\n", str12, str13);
+
+    printf("\n\n::::::__striteri__::::::\n");
+    char str14[] = "abcdefghijk";
+    ft_striteri(str14, g);
+    printf("striteri('abcdefghijk', g): %s\n", str14);
+
+    printf("\n\n::::::__putchar_fd__::::::\n");
+    /*int fd = open("test_fd", O_RDWR);
+    char b;
+    c = 'A';
+    write(fd, &c, 1);
+    close(fd);
+    fd = open("test_fd", O_RDWR);
+    while (read(fd, &b, 1) == 1)
+        printf("%c", b);
+    close(fd);*/
+    ft_putchar_fd('A', 1);
+    ft_putchar_fd('\n', 1);
+
+    printf("\n\n::::::__putstr_fd__::::::\n");
+    ft_putstr_fd("Hey hey\n", 1);
+
+    printf("\n\n::::::__putendl_fd__::::::\n");
+    ft_putendl_fd("No need to print end of line", 1);
+
+    printf("\n\n::::::__putnbr_fd__::::::\n");
+    x = -1983;
+    ft_putnbr_fd(x, 1);
     printf("\n");
 
 
