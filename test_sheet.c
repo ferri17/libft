@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:18:42 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/10 22:29:42 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/10 22:50:42 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -296,7 +296,7 @@ int main(void)
     mylist = ft_lstnew(str15);
     printf("lstnew(content): %s\n", mylist->content);
 
-    printf("\n\n::::::__ft_lstadd_front__::::::\n");
+    printf("\n\n::::::__lstadd_front__::::::\n");
     t_list *list;
     t_list second;
     t_list first;
@@ -308,6 +308,11 @@ int main(void)
     ft_lstadd_front(&list, &first);
     printf("lstadd_front(*list, list): first-> '%s', second-> '%s'\n", list->content, list->next->content);
 
-    printf("\n\n::::::__ft_lstadd_front__::::::\n");
+    printf("\n\n::::::__lstsize__::::::\n");
     printf("lstsize(previous list): %i\n", ft_lstsize(list));
+
+    printf("\n\n::::::__lstlast__::::::\n");
+    t_list *last;
+    last = ft_lstlast(list);
+    printf("lstlast(list): last-> '%s'\n", last->content);
 }

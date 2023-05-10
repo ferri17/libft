@@ -6,9 +6,18 @@
 /*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 22:31:06 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/10 22:31:17 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/10 22:49:47 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (lst)
+	{
+		while (lst->next)
+			lst = lst->next;
+	}
+	return (lst);
+}

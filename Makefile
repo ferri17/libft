@@ -6,7 +6,7 @@
 #    By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 23:08:40 by fbosch            #+#    #+#              #
-#    Updated: 2023/05/10 22:26:40 by fbosch           ###   ########.fr        #
+#    Updated: 2023/05/10 22:38:32 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c\
 ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c\
 ft_putnbr_fd.c
 
-BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
+
 
 OBJ = $(SRC:%.c=%.o)
 
@@ -45,7 +46,7 @@ bonus: $(OBJ) $(OBJ_BONUS) libft.h
 	$(LIB) $(NAME) $(OBJ) $(OBJ_BONUS)
 
 clean:
-	$(RM) $(wildcard $(OBJ)) *.out
+	$(RM) $(OBJ) $(OBJ_BONUS) *.out
 
 fclean: clean
 	$(RM) $(NAME)

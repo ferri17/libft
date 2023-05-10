@@ -6,13 +6,13 @@
 /*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 21:12:07 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/10 21:37:42 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/10 22:52:33 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list*	ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*lst;
 
