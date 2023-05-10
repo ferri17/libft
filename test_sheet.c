@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_sheet.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
+/*   By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:18:42 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/09 14:17:48 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/10 22:29:42 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -290,6 +290,24 @@ int main(void)
     ft_putnbr_fd(x, 1);
     printf("\n");
 
+    printf("\n\n::::::__lstnew__::::::\n");
+    t_list *mylist;
+    char *str15 = "Hey what's up list";
+    mylist = ft_lstnew(str15);
+    printf("lstnew(content): %s\n", mylist->content);
 
-     
+    printf("\n\n::::::__ft_lstadd_front__::::::\n");
+    t_list *list;
+    t_list second;
+    t_list first;
+    second.content = ft_strdup("Hey, I'm the second list, I used to be the first one :(");
+    second.next = NULL;
+    list = &second;
+    first.content = ft_strdup("I'm now the first list");
+    first.next = NULL;
+    ft_lstadd_front(&list, &first);
+    printf("lstadd_front(*list, list): first-> '%s', second-> '%s'\n", list->content, list->next->content);
+
+    printf("\n\n::::::__ft_lstadd_front__::::::\n");
+    printf("lstsize(previous list): %i\n", ft_lstsize(list));
 }
