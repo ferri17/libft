@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fbosch <fbosch@student.42.fr>              +#+  +:+       +#+         #
+#    By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 23:08:40 by fbosch            #+#    #+#              #
-#    Updated: 2023/05/10 22:38:32 by fbosch           ###   ########.fr        #
+#    Updated: 2023/05/11 15:05:57 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c\
 ft_putnbr_fd.c
 
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
-
+ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c\
+ft_lstmap.c
 
 OBJ = $(SRC:%.c=%.o)
 
