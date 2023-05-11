@@ -6,7 +6,7 @@
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:18:42 by fbosch            #+#    #+#             */
-/*   Updated: 2023/05/11 15:04:18 by fbosch           ###   ########.fr       */
+/*   Updated: 2023/05/12 00:25:07 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void g(unsigned int i, char *c)
     *c = *c + 1;
 }
 
-void    delete_node(void *content)
+void    free_node_content(void *content)
 {
     free(content);
 }
@@ -46,6 +46,26 @@ void    caps_lst_content(void *content)
         *str = ft_toupper(*str);
         str++;
     }
+}
+
+void    *caps_lst_string(void *content)
+{
+    int i;
+    char *str;
+    char *original;
+
+    original = (char *)content;
+    str = ft_strdup(original);
+    if (!str)
+        return (NULL);
+    i = 0;
+    while (str[i])
+    {
+        str[i] = ft_toupper(str[i]);
+        i++;
+    }
+    str[i] = '\0';
+    return (str);
 }
 
 int main(void)
@@ -357,10 +377,10 @@ int main(void)
     printf("\n\n::::::__lstdelone__::::::\n");
     t_list *some_list;
     some_list = og->next->next;
-    ft_lstdelone(some_list, &delete_node);
+    ft_lstdelone(some_list, &free_node_content);
     printf("-%s\n",(char *)og->content);
     printf("-%s\n",(char *)og->next->content);
-    printf("-%s\n",(char *)og->next->next->content);
+    //printf("-%s\n",(char *)og->next->next->content);
 
     printf("\n\n::::::__lstclear__::::::\n");
     t_list *main2 = ft_lstnew(ft_strdup("First list"));
@@ -379,7 +399,7 @@ int main(void)
         main2 = main2->next;
         p++;
     }
-    ft_lstclear(&og2, &delete_node);
+    ft_lstclear(&og2, &free_node_content);
     printf("AFTER:\n");
     p = 0;
     while (og2)
@@ -414,6 +434,34 @@ int main(void)
     {
         printf("%i-%s\n", p, (char *)og3->content);
         og3 = og3->next;
+        p++;
+    }
+
+    printf("\n\n::::::__lstmap__::::::\n");
+    t_list *main4 = ft_lstnew(ft_strdup("First list"));
+    t_list *og4 = main4;
+    t_list *modified;
+    t_list *new_element31 = ft_lstnew(ft_strdup("List added at the back"));
+    t_list *new_element32 = ft_lstnew(ft_strdup("List added at the back 2"));
+    t_list *new_element33 = ft_lstnew(ft_strdup("List added at the back 3"));
+    ft_lstadd_back(&main4, new_element31);
+    ft_lstadd_back(&main4, new_element32);
+    ft_lstadd_back(&main4, new_element33);
+    printf("BEFORE:\n");
+    p = 0;
+    while (main4)
+    {
+        printf("%i-%s\n", p, (char *)main4->content);
+        main4 = main4->next;
+        p++;
+    }
+    printf("AFTER:\n");
+    modified = ft_lstmap(og4, &caps_lst_string, &free_node_content);
+    p = 0;
+    while (modified)
+    {
+        printf("%i-%s\n", p, (char *)modified->content);
+        modified = modified->next;
         p++;
     }
 }

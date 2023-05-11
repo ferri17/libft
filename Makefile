@@ -6,7 +6,7 @@
 #    By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 23:08:40 by fbosch            #+#    #+#              #
-#    Updated: 2023/05/11 15:05:57 by fbosch           ###   ########.fr        #
+#    Updated: 2023/05/12 00:06:48 by fbosch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c\
 ft_lstmap.c
 
 OBJ = $(SRC:%.c=%.o)
-
+DEPENDS = libft.h
 OBJ_BONUS = $(BONUS:%.c=%.o)
 
 NAME = libft.a
@@ -33,23 +33,27 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIB = ar rc
 
+EXECUTABLES = *.out
+
 RM = /bin/rm -f
-RMDIR = /bin/rmdir
 
 .PHONY: all clean fclean re bonus
 
 all: $(NAME)
 
-$(NAME): $(OBJ) libft.h
+$(NAME): $(OBJ)
 	$(LIB) $(NAME) $(OBJ)
 
-bonus: $(OBJ) $(OBJ_BONUS) libft.h
+bonus: $(OBJ) $(OBJ_BONUS)
 	$(LIB) $(NAME) $(OBJ) $(OBJ_BONUS)
 
 clean:
-	$(RM) $(OBJ) $(OBJ_BONUS) *.out
+	$(RM) $(OBJ) $(OBJ_BONUS) $(EXECUTABLES)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+%.o: %.c $(DEPENDS)
+	$(CC) $(CFLAGS) -c $<  -o $(<:.c=.o)
