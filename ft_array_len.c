@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_array_len.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 00:16:14 by fbosch            #+#    #+#             */
-/*   Updated: 2023/09/25 01:07:28 by fbosch           ###   ########.fr       */
+/*   Created: 2023/06/26 02:20:48 by fbosch            #+#    #+#             */
+/*   Updated: 2023/06/26 02:20:59 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_array_len(char **arr)
 {
-	write(fd, s, ft_strlen(s));
+	int	i;
+
+	i = 0;
+	while (arr[i])
+		i++;
+	return (i);
 }

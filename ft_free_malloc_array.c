@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_free_malloc_array.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbosch <fbosch@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 00:16:14 by fbosch            #+#    #+#             */
-/*   Updated: 2023/09/25 01:07:28 by fbosch           ###   ########.fr       */
+/*   Created: 2023/06/26 02:17:11 by fbosch            #+#    #+#             */
+/*   Updated: 2023/09/25 00:47:19 by fbosch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_free_malloc_array(char **array)
 {
-	write(fd, s, ft_strlen(s));
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
